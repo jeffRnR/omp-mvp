@@ -39,4 +39,6 @@ export const TabItem: React.FC<TabItemProps> = ({
       <Text fontSize='10pt'>{item.title}</Text>
     </Flex>
   );
+
 };
+
