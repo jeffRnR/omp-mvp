@@ -11,7 +11,7 @@ type HeaderProps = {
 const Header:React.FC<HeaderProps> = ({ businessData }) => {
     
     const { businessStateValue, loading } = useBusinessData();
-    const isRecommended = !!businessStateValue.mySnippets.find(item => item.businessId === businessData.id);
+   // const isRecommended = !!businessStateValue.mySnippets.find(item => item.businessId === businessData.id);
     
     return (
         <Flex 
@@ -24,7 +24,7 @@ const Header:React.FC<HeaderProps> = ({ businessData }) => {
                 <Flex width='95%' maxWidth='860px'>
                     {businessStateValue.currentBusiness?.imageURL ? (
                         <Image 
-                            src={businessStateValue. currentBusiness.imageURL} 
+                            src={businessStateValue.currentBusiness.imageURL} 
                             borderRadius='full'
                             boxSize='66px'
                             alt='Business Image'
