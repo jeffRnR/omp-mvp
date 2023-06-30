@@ -20,6 +20,6 @@
     },
     "types": ["node", "googlemaps"]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/components/Cart/Cart.js"],
   "exclude": ["node_modules"]
 }

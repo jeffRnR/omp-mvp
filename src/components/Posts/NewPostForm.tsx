@@ -24,13 +24,13 @@ type NewPostFormProps = {
   businessImageURL?: string;
 };
 
-type TabItem = {
+export type TabItem = {
   title: string;
   icon: typeof IoDocumentText;
 };
 
 
-const formTabs: TabItem[] = [
+export const formTabs: TabItem[] = [
   {
     title: 'Image',
     icon: IoImageOutline,

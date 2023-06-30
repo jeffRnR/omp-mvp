@@ -15,11 +15,7 @@ type CreateBusinessModalProps = {
   
 };
 
-interface iFormData {
-  address: string;
-  latitude: string;
-  longitude: string;
-}
+
 
 const CreateBusinessModal: React.FC<CreateBusinessModalProps> = ({
   open,
