@@ -1,7 +1,7 @@
 import { Alert, AlertDescription, AlertIcon, AlertTitle, Button, Flex, Text } from '@chakra-ui/react';
 import React, { useState, useEffect } from 'react';
 import { IoDocumentText, IoImageOutline } from 'react-icons/io5';
-import TabItemComponent from './TabItem';
+import { TabItem } from './TabItem';
 import TextInput from './PostForm/TextInput';
 import ImageUpload from './PostForm/ImageUpload';
 import { Post } from '@/atoms/PostAtom';
@@ -170,7 +170,7 @@ const NewPostForm: React.FC<NewPostFormProps> = ({ user, businessImageURL }) => 
     <Flex direction="column" bg="white" borderRadius={4} mt={2}>
       <Flex width="100%">
         {formTabs.map((item) => (
-          <TabItemComponent
+          <TabItem
             key={item.title}
             item={item}
             selected={item.title === selectedTab}
