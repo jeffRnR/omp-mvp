@@ -3,7 +3,6 @@ import { Flex, Icon, Text } from '@chakra-ui/react';
 import { IoDocumentText } from 'react-icons/io5';
 
 
-
 type TabItemProps = {
   item: {
     title: string;
@@ -38,7 +37,7 @@ export const TabItem: React.FC<TabItemProps> = ({
       </Flex>
       <Text fontSize='10pt'>{item.title}</Text>
     </Flex>
+    
   );
-
 };
 
