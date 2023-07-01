@@ -1,4 +1,5 @@
 import type { ComponentStyleConfig } from "@chakra-ui/theme";
+import React from 'react';
 
 export const Button: ComponentStyleConfig = {
   baseStyle: {
