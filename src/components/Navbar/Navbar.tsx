@@ -8,6 +8,7 @@ import Directory from './Directory/Directory';
 import Link from 'next/link';
 import Icons from './RightContent/Icons';
 import { SearchIcon } from '@chakra-ui/icons';
+import UserMenu from './RightContent/UserMenu';
 
 const Navbar: React.FC = () => {
   const [user, loading, error] = useAuthState(auth);
@@ -37,7 +38,7 @@ const Navbar: React.FC = () => {
         />
       )}
       {!isSmallScreen && <RightContent user={user} />}
-      {showSearchInput || !isSmallScreen ? null : <Icons />} {/* Show Icons component when search icon is visible */}
+      {showSearchInput || !isSmallScreen ? null : <><Icons /><UserMenu /></>} {/* Show Icons component when search icon is visible */}
     </Flex>
   );
 };
