@@ -81,17 +81,30 @@ const PostItem: React.FC<PostItemProps> = ({
     }
   };
 
-  const calculateDistance = (lat1: number, lon1: number, lat2: number, lon2: number) => {
+  const calculateDistance = (
+    lat1: number,
+    lon1: number,
+    lat2: number,
+    lon2: number
+  ): string => {
     const R = 6371; // Radius of the earth in km
     const dLat = deg2rad(lat2 - lat1); // deg2rad below
     const dLon = deg2rad(lon2 - lon1);
     const a =
       Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-      Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
+      Math.cos(deg2rad(lat1)) *
+        Math.cos(deg2rad(lat2)) *
+        Math.sin(dLon / 2) *
+        Math.sin(dLon / 2);
     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-    const distance = R * c; // Distance in km
-    return distance.toFixed(2);
+    const distanceInKm = R * c; // Distance in km
+    const distanceInMeters = distanceInKm * 1000; // Distance in meters
+  
+    return `${distanceInKm.toFixed(2)} km (${distanceInMeters.toFixed(2)} meters)`;
   };
+  
+  
+
 
   const deg2rad = (deg: number) => {
     return deg * (Math.PI / 180);

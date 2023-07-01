@@ -49,14 +49,15 @@ const Map: React.FC<MapProps> = ({ businesses }) => {
     // Initialize the map and markers
     const initMap = (lat: number, lng: number) => {
       if (!mapContainerRef.current) return; // Null check for map container ref
-
+    
       const mapOptions = {
         center: { lat, lng }, // Use the user's current position as the initial center coordinates
         zoom: 14, // Set the initial zoom level
+        mapTypeId: google.maps.MapTypeId.ROADMAP, // Display only road names
       };
-
+    
       const map = new google.maps.Map(mapContainerRef.current, mapOptions); // Use the ref value
-
+    
       // Create a marker for the user's location
       const userMarker = new google.maps.Marker({
         position: { lat, lng },
@@ -67,7 +68,7 @@ const Map: React.FC<MapProps> = ({ businesses }) => {
           scaledSize: new google.maps.Size(40, 40),
         },
       });
-
+    
       // Create markers for each business if the array is defined and not empty
       if (businesses && businesses.length > 0) {
         businesses.forEach((business) => {
@@ -83,6 +84,7 @@ const Map: React.FC<MapProps> = ({ businesses }) => {
         });
       }
     };
+    
 
     loadGoogleMapsScript();
   }, [businesses]);
