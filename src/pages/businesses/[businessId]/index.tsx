@@ -25,11 +25,7 @@ const BusinessPage:React.FC<BusinessPageProps> = ({ businessData}) => {
 
     const setBusinessStateValue = useSetRecoilState(businessState);
 
-    if (!businessData){
-        return(
-            <NotFound />
-        )
-    }
+   
 
     useEffect(() => {
         setBusinessStateValue((prev) => ({
@@ -37,6 +33,12 @@ const BusinessPage:React.FC<BusinessPageProps> = ({ businessData}) => {
             currentBusiness: businessData
         }))
     }, [businessData])
+
+    if (!businessData){
+        return(
+            <NotFound />
+        )
+    }
     return (
         <>
             <Header businessData={businessData}/>
