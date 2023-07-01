@@ -15,6 +15,7 @@ export type Post = {
   createdAt: Timestamp;
   latitude: number; // Added latitude property
   longitude: number; // Added longitude property
+  
 };
 
 interface PostState {

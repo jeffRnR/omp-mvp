@@ -40,11 +40,23 @@ const CreateBusinessModal: React.FC<CreateBusinessModalProps> = ({
   //const { toogleMenuOpen } = useDirectory();
 
   const categories = [
-    'Food and Beverage',
-    'Fashion',
-    'Automotive and Transport',
-    'Chemicals and materials',
-    'Healthcare products',
+    'Apparel and accessories',
+    'Beauty and personal care',
+    'Books, movies and music',
+    'Computers and electronics',
+    'Food and beverage',
+    'Furniture and home decor',
+    'Health and wellness',
+    'Home and garden',
+    'Jewelry and watches',
+    'Kids and baby roducts',
+    'Office supplies and equipments',
+    'Pet supplies',
+    'Sports and outdoors',
+    'Toys and games',
+    'Vehicles and automotive',
+    'Party supplies',
+    'Alcohol beverages'
   ];
 
   const validatePhoneNumber = (phoneNumber: string) => {
