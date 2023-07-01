@@ -7,7 +7,7 @@ import { auth } from '@/firebase/clientApp';
 import Directory from './Directory/Directory';
 import Link from 'next/link';
 import Icons from './RightContent/Icons';
-import { SearchIcon } from '@chakra-ui/icons';
+import { SearchIcon, CloseIcon } from '@chakra-ui/icons';
 import UserMenu from './RightContent/UserMenu';
 
 const Navbar: React.FC = () => {
@@ -19,8 +19,21 @@ const Navbar: React.FC = () => {
     setShowSearchInput(!showSearchInput);
   };
 
+  const closeSearchInput = () => {
+    setShowSearchInput(false);
+  };
+
   return (
-    <Flex bg="white" height="45px" padding="6px 12px" justify={{ md: 'space-between' }}>
+    <Flex
+      bg="white"
+      height="45px"
+      padding="6px 12px"
+      justify={{ md: 'space-between' }}
+      position="sticky" /* Fixed position to prevent movement when scrolling */
+      top={0} /* Stick to the top of the viewport */
+      width="100%"
+      zIndex={999} /* Adjust the z-index as needed */
+    >
       <Flex align="center" width={{ base: '40px', md: 'auto' }} mr={{ base: 0, md: 2 }}>
         <Link href="/">
           <Image src="/images/omplogo1.jpeg" height={{ base: '24px', md: '30px' }} cursor="pointer" />
@@ -28,17 +41,34 @@ const Navbar: React.FC = () => {
       </Flex>
       {user && <Directory />}
       {isSmallScreen && showSearchInput ? (
-        <SearchInput user={user} />
+        <Flex align='center'>
+          <SearchInput user={user} />
+          <IconButton
+            icon={<CloseIcon />}
+            aria-label="Close"
+            variant="ghost"
+            onClick={closeSearchInput}
+            fontSize={15}
+            marginLeft="auto" /* Move the close icon to the right side */
+          />
+        </Flex>
       ) : (
         <IconButton
           icon={<SearchIcon />}
           aria-label="Search"
           variant="ghost"
           onClick={toggleSearchInput}
+          fontSize={18}
+          marginLeft="auto" /* Move the search icon to the right side */
         />
       )}
       {!isSmallScreen && <RightContent user={user} />}
-      {showSearchInput || !isSmallScreen ? null : <><Icons /><UserMenu /></>} {/* Show Icons component when search icon is visible */}
+      {showSearchInput || !isSmallScreen ? null : (
+        <Flex>
+          <Icons />
+          <UserMenu />
+        </Flex>
+      )}
     </Flex>
   );
 };

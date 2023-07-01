@@ -129,9 +129,10 @@ const PostItem: React.FC<PostItemProps> = ({
       _hover={{ borderColor: 'gray.500' }}
       cursor="pointer"
       /*onClick={() => onSelectPost && onSelectPost(post)}*/
+      
     >
       
-      <Flex direction="column" width="100%">
+      <Flex direction="column" width="100%" >
         <Stack spacing={1} p="10px">
           <Stack direction="row" align="center" fontSize="9pt">
             {/* Home page check */}
