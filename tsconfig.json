@@ -20,6 +20,6 @@
     },
     "types": ["node", "googlemaps"]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/components/Cart/Cart.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/components/Cart/Cart.js", "src/pages/chakra/theme.js", "src/pages/chakra/button.js"],
   "exclude": ["node_modules"]
 }
